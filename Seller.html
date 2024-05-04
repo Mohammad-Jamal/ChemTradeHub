@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ChemTrade Seller Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    .dashboard-section {
+      height: 200px; /* Set the desired height for all dashboard sections */
+    }
+    
+    body {
+      background-color: #fefae0;
+      color: #212529;
+      transition: all 0.1s linear;
+    }   
+    
+    .product {
+      margin-bottom: 20px;
+    }
+
+    .pagination {
+      margin-top: 20px;
+    }
+
+    .pagination a {
+      color: #212529;
+      padding: 8px 16px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      border: 1px solid #ddd;
+    }
+
+    .pagination a.active {
+      background-color: #007bff;
+      color: white;
+      border: 1px solid #007bff;
+    }
+
+    .pagination a:hover:not(.active) {
+      background-color: #ddd;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse visible-xs">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">ChemTrade</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Orders</a></li>
+        <li><a href="#">Customers</a></li>
+        <li><a href="#">Account</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <h2>ChemTrade</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Dashboard</a></li>
+        <li><a href="#section2">Products</a></li>
+        <li><a href="#section3">Orders</a></li>
+        <li><a href="#section4">Customers</a></li>
+        <li><a href="#section5">Account</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul><br>
+    </div>
+    <br>
+    
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>Dashboard</h4>
+        <p>Welcome to ChemTrade Seller Dashboard. Here you can manage your products, orders, customers, and account settings.</p>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="well dashboard-section" id="section2">
+            <h4>Products</h4>
+            <p>Total: 100</p> 
+            <p><a href="#">Add Product</a></p> 
+            <p><a href="#">Edit Product</a></p> 
+            <p><a href="#">Delete Product</a></p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well dashboard-section" id="section3">
+            <h4>Orders</h4>
+            <p>Total: 50</p> 
+            <p><a href="#">View Orders</a></p> 
+            <p><a href="#">Process Order</a></p> 
+            <p><a href="#">Cancel Order</a></p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well dashboard-section" id="section4">
+            <h4>Customers</h4>
+            <p>Total: 200</p> 
+            <p><a href="#">View Customers</a></p> 
+            <p><a href="#">Contact Customers</a></p> 
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="well dashboard-section" id="section5">
+            <h4>Account</h4>
+            <p><a href="#">Update Profile</a></p> 
+            <p><a href="#">Change Password</a></p> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well">
+        <h4>My Products</h4>
+        <div class="form-group">
+          <input type="text" class="form-control" id="productSearch" placeholder="Search products">
+        </div>
+        <div class="form-group">
+          <select class="form-control" id="filterCategory">
+            <option value="">Filter by Category</option>
+            <!-- Categories will be dynamically populated -->
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control" id="filterPrice">
+            <option value="lowToHigh">Price: Low to High</option>
+            <option value="highToLow">Price: High to Low</option>
+          </select>
+        </div>
+        <div class="row" id="productsList">
+          <!-- Product list will be displayed here -->
+        </div>
+        <div class="pagination"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Dummy data
+    const dummyData = {
+        "products": [
+            {
+                "name": "Product 1",
+                "category": "Category 1",
+                "price": 20.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            },
+            {
+                "name": "Product 2",
+                "category": "Category 1",
+                "price": 25.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            },
+            {
+                "name": "Product 3",
+                "category": "Category 2",
+                "price": 30.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            },
+            {
+                "name": "Product 4",
+                "category": "Category 2",
+                "price": 35.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            },
+            {
+                "name": "Product 5",
+                "category": "Category 3",
+                "price": 40.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            },
+            {
+                "name": "Product 6",
+                "category": "Category 3",
+                "price": 45.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            },
+            ,
+            {
+                "name": "Product 68",
+                "category": "Category 3",
+                "price": 45.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            }
+            ,
+            {
+                "name": "Product 0",
+                "category": "Category 3",
+                "price": 45.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            }
+            ,
+            {
+                "name": "Product 24",
+                "category": "Category 3",
+                "price": 45.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            }
+            ,
+            {
+                "name": "Product 10",
+                "category": "Category 3",
+                "price": 45.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            }
+            ,
+            {
+                "name": "Product 13",
+                "category": "Category 3",
+                "price": 45.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            }
+            ,
+            {
+                "name": "Product 32",
+                "category": "Category 3",
+                "price": 45.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            }
+            ,
+            {
+                "name": "Product 34",
+                "category": "Category 3",
+                "price": 45.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            }
+            ,
+            {
+                "name": "Product 81",
+                "category": "Category 3",
+                "price": 45.00,
+                "image": "https://designshack.net/wp-content/uploads/placeholder-image.png"
+            }
+            
+            // Add more products here
+        ]
+    };
+
+    const productsList = document.getElementById("productsList");
+    const productSearchInput = document.getElementById("productSearch");
+    const filterCategory = document.getElementById("filterCategory");
+    const filterPrice = document.getElementById("filterPrice");
+    const paginationDiv = document.querySelector(".pagination");
+
+    // Pagination
+    function paginate(array, pageSize, pageNumber) {
+        return array.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
+    }
+
+    // Display pagination links
+    function displayPagination(totalProducts, pageSize, currentPage) {
+        paginationDiv.innerHTML = "";
+
+        const totalPages = Math.ceil(totalProducts.length / pageSize);
+        for (let i = 1; i <= totalPages; i++) {
+            const pageLink = document.createElement("a");
+            pageLink.href = "#";
+            pageLink.textContent = i;
+
+            if (currentPage === i) {
+                pageLink.classList.add("active");
+            }
+
+            pageLink.addEventListener("click", function() {
+                const pageProducts = paginate(dummyData.products, pageSize, i);
+                displayProducts(pageProducts);
+                // Highlight active page
+                const activeLink = document.querySelector(".pagination a.active");
+                if (activeLink) {
+                    activeLink.classList.remove("active");
+                }
+                this.classList.add("active");
+            });
+
+            paginationDiv.appendChild(pageLink);
+        }
+    }
+
+    // Display products
+    function displayProducts(products) {
+        productsList.innerHTML = ""; // Clear previous products
+
+        products.forEach(product => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("col-lg-3", "col-md-4", "col-sm-6", "product", "text-center");
+
+            const image = document.createElement("img");
+            image.src = product.image;
+            image.alt = product.name;
+            image.style.maxWidth = "100%";
+            image.style.height = "auto";
+
+            const name = document.createElement("h3");
+            name.textContent = product.name;
+
+            const category = document.createElement("p");
+            category.textContent = "Category: " + product.category;
+
+            const price = document.createElement("p");
+            price.textContent = "Price: Rs." + product.price;
+
+            productDiv.appendChild(image);
+            productDiv.appendChild(name);
+            productDiv.appendChild(category);
+            productDiv.appendChild(price);
+
+            productsList.appendChild(productDiv);
+        });
+    }
+
+    // Populate category filter options
+    function populateCategories() {
+        const categories = [...new Set(dummyData.products.map(product => product.category))];
+        categories.forEach(category => {
+            const option = document.createElement("option");
+            option.value = category;
+            option.textContent = category;
+            filterCategory.appendChild(option);
+        });
+    }
+
+    // Event listener for filter dropdowns
+    function applyFilters() {
+        const searchValue = productSearchInput.value.toLowerCase();
+        const categoryValue = filterCategory.value;
+        const priceValue = filterPrice.value;
+
+        let filteredProducts = dummyData.products;
+
+        // Filter by search term
+        if (searchValue) {
+            filteredProducts = filteredProducts.filter(product =>
+                product.name.toLowerCase().includes(searchValue)
+            );
+        }
+
+        // Filter by category
+        if (categoryValue) {
+            filteredProducts = filteredProducts.filter(product =>
+                product.category === categoryValue
+            );
+        }
+
+        // Sort by price
+        if (priceValue === "lowToHigh") {
+            filteredProducts.sort((a, b) => a.price - b.price);
+        } else if (priceValue === "highToLow") {
+            filteredProducts.sort((a, b) => b.price - a.price);
+        }
+
+        // Display filtered products
+        displayProducts(filteredProducts);
+        displayPagination(filteredProducts, 12, 1); // Maximum 12 products per page, start from page 1
+    }
+
+    // Event listeners for search and filter dropdowns
+    productSearchInput.addEventListener("input", applyFilters);
+    filterCategory.addEventListener("change", applyFilters);
+    filterPrice.addEventListener("change", applyFilters);
+
+    // Initialize
+    populateCategories();
+    applyFilters();
+});
+</script>
+
+</body>
+</html>
