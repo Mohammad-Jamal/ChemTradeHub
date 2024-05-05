@@ -88,9 +88,9 @@
 .title {
   color:#fff;
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   line-height: 1;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1.5rem;
 }
 
 .input-container {
@@ -107,10 +107,10 @@
   outline: none;
   border: 2px solid #fafafa;
   background: none;
-  padding: 0.6rem 1.2rem;
+  padding: 1.5rem 1.2rem;
   color: #fff;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1.5rem;
   letter-spacing: 0.5px;
   border-radius: 25px;
   transition: 0.3s ;
@@ -147,7 +147,7 @@ textarea.input {
   -o-transform: translateY(-50%);
   padding: 0 0.4rem;
   color: #fafafa;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   font-weight: 400;
   pointer-events: none;
   transition: 0.5s;
@@ -171,7 +171,7 @@ textarea.input {
   padding: 0.6rem 1.3rem;
   background-color: #fff;
   border: 2px solid #fafafa;
-  font-size: 0.95rem;
+  font-size: 1.6rem;
   color: #1abc9c;
   line-height:  1;
   border-radius: 25px;
@@ -244,7 +244,7 @@ textarea.input {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   left: 25px;
-  font-size: 0.8rem;
+  font-size: 0.89rem;
 
 }
 
@@ -267,7 +267,9 @@ textarea.input {
 .text {
   /* color: #333; */
   color: var(--bg-primary);
+  font-size: 1.7rem;
   margin: 1.5rem 0 2rem 0;
+  line-height: 2.6rem;
 }
 
 .information {
@@ -275,11 +277,11 @@ textarea.input {
   color: var(--bg-primary);
   margin: 0.7rem 0;
   align-items: center;
-  font-size: 0.95rem;
+  font-size: 1.7rem;
 }
 
 .icon {
-  width: 30px;
+  width: 2.8rem;
   margin-right: 0.7rem;
 }
 
@@ -289,16 +291,19 @@ textarea.input {
 
 .social-media p {
   color: var(--bg-primary);
+  font-size : 1.6rem;
+  line-height: 2;
 }
 
 .social-icons {
   display: flex;
   margin-top: 0.5rem;
+
 }
 
 .social-icons a {
-  width: 35px;
-  height: 35px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -307,8 +312,12 @@ textarea.input {
   background: linear-gradient(45deg ,#1abc9c, #149279);
   color: var(--bg-primary);
   text-align: center;
-  line-height: 35px;
-  margin-right: 0.5rem;
+  line-height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  text-decoration: none;
   transition: 0.3s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
@@ -322,6 +331,11 @@ textarea.input {
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
   -o-transform: scale(1.05);
+}
+
+.social-icons a i {
+  font-size: 2.2rem;
+  color: #fafafa;
 }
 
 .contact-info:before {
@@ -378,8 +392,8 @@ textarea.input {
 @media (max-width : 980px) {
   .container1 {
     height:100vh;
-    padding-top: 30rem ;
-    padding-bottom: 30rem ;
+    padding-top: 45rem ;
+    padding-bottom: 45rem ;
   }
   .form {
     grid-template-columns: 1fr;
@@ -423,8 +437,10 @@ textarea.input {
 }
 
 @media(max-width: 480px) {
-  .container {
-    padding: 1.5rem;
+  .container1 {
+    padding: 2rem;
+    padding-top: 40rem ;
+    padding-bottom: 40rem ;
   }
 
   .contact-info:before {
@@ -443,17 +459,32 @@ textarea.input {
   .text,
   .information,
   .social-media p {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
+  }
+
+  .social-media p {
+    margin-bottom: 1rem;
   }
 
   .title {
-    font-size: 1.15rem;
+    font-size: 1.7rem;
   }
 
   .social-icons a {
     width: 30px;
     height: 30px;
     line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+  }
+
+  .social-icons a i {
+    font-size: 1.8rem;
+    color: #fafafa;
+
   }
 
   .icon {
@@ -461,10 +492,16 @@ textarea.input {
   }
 
   .input {
-    padding: 0.45rem 1.2rem;
+    padding: 1rem 1.2rem;
   }
 
   .btn {
-    padding: 0.45rem;
+    padding: 0.5rem 0.6rem;
+    font-size: 1.3rem;
+  }
+
+  .input-container label,
+  .input-container span {
+    font-size: 1.2rem;
   }
 }
