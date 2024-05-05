@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChemTradeHub - Buyer's Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">CHEMTRADEHUB</div>
+        <nav>
+            <ul class="navbar">
+                <li><a href="#">Buy</a></li>
+                <li><a href="#">Sell</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Log In</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="search-filter">
+    <div class="container">
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search Products...">
+            <button onclick="searchProducts()">Search</button>
+        </div>
+        <div class="filter">
+            <select id="filterCategory">
+                <option value="all">Filter by Category</option>
+                
+            </select>
+            <select id="filterPrice">
+                <option value="default">Filter by Price</option>
+                <option value="lowToHigh">Low to High</option>
+                <option value="highToLow">High to Low</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Available Products</h2>
+    <div id="productsList" class="products-list">
+        
+    </div>
+    <div class="pagination">
+        
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
