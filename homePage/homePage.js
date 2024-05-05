@@ -134,3 +134,50 @@ window.onchange = function() {
       smoothScroll(target, 1000, offset); // Adjust duration as needed
     });
   });
+
+  //todo To know which nav link is active
+
+  // Get all anchor links in the header
+  var navLinks = document.querySelectorAll('.header ul li a');
+
+  // Add event listeners to each link
+  navLinks.forEach(nav => {
+    nav.addEventListener('click', function() {
+      // Remove 'active' class from all links
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+      // Add 'active' class to the clicked link
+      this.classList.add('active');
+    });
+  });
+
+    // Function to highlight active section in navigation
+    function highlightActiveSection() {
+      var sections = document.querySelectorAll('main > div[id]');
+      var navLinks = document.querySelectorAll('.header ul li a');
+  
+      sections.forEach(section => {
+        var sectionTop = section.getBoundingClientRect().top;
+        var sectionBottom = section.getBoundingClientRect().bottom;
+        
+  
+        if (sectionTop <= window.innerHeight / 2 && sectionBottom >= window.innerHeight / 2) {
+          var id = section.getAttribute('id');
+  
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === '#' + id) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }
+  
+    // Highlight active section on initial page load
+    highlightActiveSection();
+  
+    // Listen for scroll events to highlight active section
+    window.addEventListener('scroll', highlightActiveSection);
