@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" href="./imgs/logo.png">
   <link rel="stylesheet" href="./homePage.css">
+  <link rel="stylesheet" href="./contactform.css">
   <title>ChemTrade</title>
 </head>
 <body>
@@ -24,10 +25,11 @@
       </form>
     </div>
     <ul>
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Signup</a></li>
-      <li><a href="#">Login</a></li>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#signup">Signup</a></li>
+      <li><a href="#login">Login</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="toggle-btn">
       <input type="checkbox" id="checkbox">
@@ -42,7 +44,7 @@
     </div>
 
   </header>
-  <main class="intro-section">
+  <main class="intro-section"  id="home">
     <div class="intro">
       <h1>
         Revolutionizing Chemical Trade
@@ -59,7 +61,7 @@
       <img src="./imgs/chemicals.jpg" alt="Image">
       <p>ChemTradeHub - Redefining the Future of Chemical Trading</p>
     </div>
-    <div class="about-section">
+    <div class="about-section" id="about">
       <div class="about-content">
         <div class="about-image">
           <img src="./imgs/chemicals2.jpg" alt="image">
@@ -73,6 +75,70 @@
 
       <div class="about-para2"> 
         <p>With ChemTrade, users can easily list their chemical products or requirements, negotiate terms, and finalize transactions—all in one convenient location. Our mission is to empower connections, simplify transactions, and redefine the future of chemical trading.</p>
+      </div>
+    </div>
+    <div class="container1" id="contact">
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's Get in Touch</h3>
+          <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, laborum officiis? Similique, ipsa sed.</p>
+          <div class="info">
+            <div class="information">
+              <img src="./imgs/location.png" class="icon" alt="">
+              <p>Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+            <div class="information">
+              <img src="./imgs/email.png" class="icon" alt="">
+              <p>lorem@gmail.com</p>
+            </div>
+            <div class="information">
+              <img src="./imgs/phone.png" class="icon" alt="">
+              <p>124-458-785</p>
+            </div>
+          </div>
+          <div class="social-media">
+            <p>Connect with us</p>
+            <div class="social-icons">
+              <a href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+          <form action="homePage.html" class="form2">
+            <h3 class="title">Contact us</h3>
+            <div class="input-container">
+              <input type="text" name="name" class="input">
+              <label for="">Username</label>
+              <span>Username</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="email" class="input">
+              <label for="">Email</label>
+              <span>Email</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="phone" class="input">
+              <label for="">Phone</label>
+              <span>Phone</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea type="text" class="input"></textarea>
+              <label for="">Message</label>
+              <span>Message</span>
+            </div>
+            <input type="submit" value="Send" class="btn">
+          </form>
+        </div>
       </div>
     </div>
 
