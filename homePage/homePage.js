@@ -152,32 +152,38 @@ window.onchange = function() {
     });
   });
 
-    // Function to highlight active section in navigation
-    function highlightActiveSection() {
-      var sections = document.querySelectorAll('main > div[id]');
-      var navLinks = document.querySelectorAll('.header ul li a');
-  
-      sections.forEach(section => {
-        var sectionTop = section.getBoundingClientRect().top;
-        var sectionBottom = section.getBoundingClientRect().bottom;
-        
-  
-        if (sectionTop <= window.innerHeight / 2 && sectionBottom >= window.innerHeight / 2) {
-          var id = section.getAttribute('id');
-  
-          navLinks.forEach(link => {
-            if (link.getAttribute('href') === '#' + id) {
-              link.classList.add('active');
-            } else {
-              link.classList.remove('active');
-            }
-          });
-        }
-      });
+  // Function to highlight active section in navigation
+  function highlightActiveSection() {
+    var sections = document.querySelectorAll('main > div[id]');
+    var navLinks = document.querySelectorAll('.header ul li a');
+
+    // Reset all navigation links to inactive
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+
+    // Check if Home section is in view
+    var homeSection = document.getElementById('home');
+    var homeLink = document.querySelector('.header ul li a[href="#home"]');
+    var homeRect = homeSection.getBoundingClientRect();
+    if (homeRect.top >= 0 && homeRect.bottom <= window.innerHeight) {
+      homeLink.classList.add('active');
+      return;
     }
-  
-    // Highlight active section on initial page load
-    highlightActiveSection();
-  
-    // Listen for scroll events to highlight active section
-    window.addEventListener('scroll', highlightActiveSection);
+
+    // Check other sections
+    sections.forEach(section => {
+      var sectionRect = section.getBoundingClientRect();
+      if (sectionRect.top <= window.innerHeight / 2 && sectionRect.bottom >= window.innerHeight / 2) {
+        var id = section.getAttribute('id');
+        var correspondingLink = document.querySelector('.header ul li a[href="#' + id + '"]');
+        correspondingLink.classList.add('active');
+      }
+    });
+  }
+
+  // Highlight active section on initial page load
+  highlightActiveSection();
+
+  // Listen for scroll events to highlight active section
+  window.addEventListener('scroll', highlightActiveSection);
