@@ -10,6 +10,36 @@
   <link rel="stylesheet" href="./homePage.css">
   <link rel="stylesheet" href="./contactform.css">
   <title>ChemTrade</title>
+  <style>
+    /* Width */
+    ::-webkit-scrollbar {
+    width: 8px; /* Width of the entire scrollbar */
+
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #d1caca; /* Color of the track */
+
+  }
+
+  ::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  scrollbar-color: #6969dd #e0e0e0;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+    border-radius: 100px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-image: linear-gradient(180deg, #daad4d 0%, #80c453 99%);
+  }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -44,7 +74,7 @@
     </div>
 
   </header>
-  <main class="intro-section"  id="home">
+  <main class="intro-section main"  id="home">
     <div class="intro">
       <h1>
         Revolutionizing Chemical Trade
@@ -77,6 +107,74 @@
         <p>With ChemTrade, users can easily list their chemical products or requirements, negotiate terms, and finalize transactions—all in one convenient location. Our mission is to empower connections, simplify transactions, and redefine the future of chemical trading.</p>
       </div>
     </div>
+    <!-- <div class="container1" id="contact">
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's Get in Touch</h3>
+          <p class="text">We're here to answer any questions you may have. Reach out to us via email or phone, or connect with us on social media for updates and news.</p>
+          <div class="info">
+            <div class="information">
+              <img src="./imgs/location.png" class="icon" alt="">
+              <p>Location : Bangalore,Karnataka,000650</p>
+            </div>
+            <div class="information">
+              <img src="./imgs/email.png" class="icon" alt="">
+              <p>Email : chemtrade@example.com </p>
+            </div>
+            <div class="information">
+              <img src="./imgs/phone.png" class="icon" alt="">
+              <p>124-458-785</p>
+            </div>
+          </div>
+          <div class="social-media">
+            <p>Connect with us</p>
+            <div class="social-icons">
+              <a href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+          <form action="homePage.html" class="form2">
+            <h3 class="title">Contact us</h3>
+            <div class="input-container">
+              <input type="text" name="name" class="input">
+              <label for="">Username</label>
+              <span>Username</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="email" class="input">
+              <label for="">Email</label>
+              <span>Email</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="phone" class="input">
+              <label for="">Phone</label>
+              <span>Phone</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea type="text" class="input"></textarea>
+              <label for="">Message</label>
+              <span>Message</span>
+            </div>
+            <input type="submit" value="Send" class="btn">
+          </form>
+        </div>
+      </div>
+    </div> -->
+
+
+  </main>
+  <footer class="footer">
     <div class="container1" id="contact">
       <div class="form">
         <div class="contact-info">
@@ -141,9 +239,7 @@
         </div>
       </div>
     </div>
-
-
-  </main>
+  </footer>
   <script src="./homePage.js"></script>
 </body>
 </html>

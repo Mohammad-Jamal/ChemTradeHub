@@ -23,7 +23,7 @@
   background-color: #fff;
   background-color: var(--bg-main);
   border-radius: 10px;
-  box-shadow: 0 0 20px 1px rgba(222, 215, 215, 0.358);
+  box-shadow: 0 0 15px 1px rgba(83, 144, 209, 0.304);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -281,7 +281,7 @@ textarea.input {
 }
 
 .icon {
-  width: 2.8rem;
+  width: 2.3rem;
   margin-right: 0.7rem;
 }
 
@@ -473,7 +473,7 @@ textarea.input {
   .social-icons a {
     width: 30px;
     height: 30px;
-    line-height: 30px;
+    line-height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -488,7 +488,7 @@ textarea.input {
   }
 
   .icon {
-    width : 23px;
+    width : 20px;
   }
 
   .input {

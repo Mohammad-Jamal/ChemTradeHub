@@ -7,7 +7,7 @@
 
 /* Light mode theme styles */
 :root {
-  --bg-main : #fefae0;
+  --bg-main : #f5f5fd;
   --bg-primary : #212529;
   --color-input : #212529;
 }
@@ -22,7 +22,7 @@ body {
 /* Dark mode theme Styles */
 :root .dark-mode {
   --bg-main  :  #212529;
-  --bg-primary : #fefae0;
+  --bg-primary : #f5f5fd;
   --color-input : #212529;
 }
 
@@ -33,7 +33,10 @@ body .dark-mode {
 }
 
 body {
-  font-family: "Metrophobic", sans-serif; ;
+  font-family: "Metrophobic", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 html {
@@ -269,6 +272,10 @@ header .menu {
 
   header ul {
     width : 100%;
+  }
+
+  .intro-section .about-section .about-content .about-para h2 {
+    font-size: 2.7rem;
   }
 
 
@@ -1013,5 +1020,12 @@ textarea.input {
   }
 }
 
+.main {
+  flex: 1;
+}
+
+.footer {
+  margin-top: auto;
+}
 
 
